@@ -60,28 +60,28 @@ class sspmod_idpsamlmdattributes_Auth_Process_AttributeFromMetadata extends Simp
     $attributes =& $request['Attributes'];
 
     foreach($this->map as $metadata_name => $attribute_name) {
-      $value = null;
+      $value = array();
       switch ($metadata_name) {
         case 'DisplayName':
           if(isset($request['Source']['UIInfo']['DisplayName']['en'])) {
-            $value = $request['Source']['UIInfo']['DisplayName']['en'];
+            $value[] = $request['Source']['UIInfo']['DisplayName']['en'];
           }
           break;
 
         case 'OrganizationName':
           if(isset($request['Source']['OrganizationName']['en'])) {
-            $value = $request['Source']['OrganizationName']['en'];
+            $value[] = $request['Source']['OrganizationName']['en'];
           }
           break;
 
         case 'OrganizationDisplayName':
           if(isset($request['Source']['OrganizationDisplayName']['en'])) {
-            $value = $request['Source']['OrganizationDisplayName']['en'];
+            $value[] = $request['Source']['OrganizationDisplayName']['en'];
           }
           break;
       }
 
-      if(isset($value)) {
+      if(!empty($value)) {
         $attributes[$attribute_name] = $value;
       }
     }
