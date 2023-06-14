@@ -8,7 +8,7 @@
  *
  * @author Scott Koranda, SCG
  */
-class sspmod_idpsamlmdattributes_Auth_Process_AttributeFromMetadata extends SimpleSAML_Auth_ProcessingFilter {
+class sspmod_idpsamlmdattributes_Auth_Process_AttributeFromMetadata extends \SimpleSAML\Auth\ProcessingFilter {
 
   /**
    * Metadata elements we know and that can be configured
