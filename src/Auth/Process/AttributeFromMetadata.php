@@ -1,5 +1,7 @@
 <?php
 
+namespace SimpleSAML\Module\idpsamlmdattributes\Auth\Process;
+
 /**
  * Filter to add attributes based on metadata of asserting IdP.
  *
@@ -8,7 +10,7 @@
  *
  * @author Scott Koranda, SCG
  */
-class sspmod_idpsamlmdattributes_Auth_Process_AttributeFromMetadata extends \SimpleSAML\Auth\ProcessingFilter {
+class AttributeFromMetadata extends \SimpleSAML\Auth\ProcessingFilter {
 
   /**
    * Metadata elements we know and that can be configured
@@ -53,7 +55,7 @@ class sspmod_idpsamlmdattributes_Auth_Process_AttributeFromMetadata extends \Sim
    *
    * @param array &$request  The current request
    */
-  public function process(&$request) {
+  public function process( array &$request ) : void {
     assert('is_array($request)');
     assert('array_key_exists("Attributes", $request)');
 
